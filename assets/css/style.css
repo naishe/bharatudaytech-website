@@ -601,6 +601,7 @@ table.matrix tbody tr:hover { background: rgba(217, 119, 6, 0.04); }
   color: var(--slate-light);
 }
 .badge svg { width: 14px; height: 14px; stroke: var(--amber); }
+.badge svg.flag-icon { width: 20px; height: 13.3px; flex-shrink: 0; }
 
 .footer-bottom {
   display: flex;
