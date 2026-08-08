@@ -525,6 +525,77 @@ table.matrix td:last-child {
 
 table.matrix tbody tr:hover { background: rgba(217, 119, 6, 0.04); }
 
+/* Below ~700px the table can't fit its columns without cutting content off,
+   so each row becomes a labeled card instead of a horizontally-scrolling table. */
+@media (max-width: 700px) {
+  .table-wrap {
+    overflow-x: visible;
+    border: none;
+    border-radius: 0;
+    background: transparent;
+  }
+
+  table.matrix {
+    display: block;
+    min-width: 0;
+  }
+
+  table.matrix thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+    padding: 0;
+    margin: -1px;
+  }
+
+  table.matrix tbody,
+  table.matrix tr,
+  table.matrix td {
+    display: block;
+    width: 100%;
+  }
+
+  table.matrix tr {
+    background: #fff;
+    border: 1px solid var(--border-light);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 16px;
+  }
+
+  table.matrix tr:last-child { margin-bottom: 0; }
+
+  table.matrix td {
+    padding: 10px 0;
+    border-bottom: 1px dashed var(--border-light);
+  }
+
+  table.matrix td:first-child { padding-top: 0; }
+  table.matrix td:last-child { padding-bottom: 0; border-bottom: none; }
+
+  table.matrix td:first-child,
+  table.matrix td:last-child {
+    white-space: normal;
+  }
+
+  table.matrix td::before {
+    content: attr(data-label);
+    display: block;
+    font-family: var(--font-head);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--slate);
+    opacity: 0.75;
+    margin-bottom: 4px;
+  }
+}
+
 /* ---------- CTA banner ---------- */
 .cta-banner {
   background: linear-gradient(135deg, var(--amber) 0%, var(--terracotta) 100%);
