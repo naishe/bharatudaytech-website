@@ -21,6 +21,63 @@
     });
   }
 
+  /* Contact form (Web3Forms) */
+  var contactForm = document.getElementById("contact-form");
+  if (contactForm) {
+    var areaCheckboxes = contactForm.querySelectorAll(".area-checkbox");
+    var areaHiddenInput = document.getElementById("area-of-interest-value");
+    var statusEl = contactForm.querySelector(".form-status");
+    var successPanel = document.getElementById("contact-success");
+    var submitBtn = contactForm.querySelector(".contact-submit");
+    var idleLabel = submitBtn ? submitBtn.textContent : "";
+    var sendingLabel = contactForm.getAttribute("data-sending-label") || idleLabel;
+
+    contactForm.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      if (areaHiddenInput) {
+        var selected = [];
+        areaCheckboxes.forEach(function (box) {
+          if (box.checked) selected.push(box.value);
+        });
+        areaHiddenInput.value = selected.join(", ");
+      }
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = sendingLabel;
+      }
+      if (statusEl) {
+        statusEl.textContent = "";
+        statusEl.classList.remove("is-success", "is-error");
+      }
+
+      fetch(contactForm.action, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(contactForm)
+      })
+        .then(function (response) { return response.json(); })
+        .then(function (result) {
+          if (!result || !result.success) throw new Error((result && result.message) || "Submission failed");
+          contactForm.reset();
+          contactForm.classList.add("form-sent");
+          if (successPanel) successPanel.hidden = false;
+        })
+        .catch(function () {
+          if (statusEl) {
+            statusEl.textContent = contactForm.getAttribute("data-error-message") || "";
+            statusEl.classList.add("is-error");
+          }
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.textContent = idleLabel;
+          }
+        });
+    });
+  }
+
   /* Abstract network-mesh hero animation (decorative, no map/geography implied) */
   var canvas = document.getElementById("mesh-canvas");
   if (!canvas || !canvas.getContext) return;

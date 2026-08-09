@@ -35,10 +35,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/css/style.css">
 <style>
-  body, .hero-sub, .cap-card p, blockquote, table.matrix, .poc-card p, .footer-brand p, .footer-contact, .legal, .badge, .hero-meta-item {
+  body, .hero-sub, .cap-card p, blockquote, table.matrix, .poc-card p, .footer-brand p, .footer-contact, .legal, .badge, .hero-meta-item, .form-control, .contact-success p {
     font-family: 'Noto Sans Devanagari', 'Inter', sans-serif;
   }
-  h1, h2, h3, h4, .brand-title, .eyebrow, .btn, .main-nav a, table.matrix th, td:first-child, td:last-child {
+  h1, h2, h3, h4, .brand-title, .eyebrow, .btn, .main-nav a, table.matrix th, td:first-child, td:last-child, .form-field label, .checkbox-group legend {
     font-family: 'Noto Sans Devanagari', 'Montserrat', 'Inter', sans-serif;
   }
 </style>
@@ -108,7 +108,7 @@
         <p class="hero-sub">उच्च-समवर्ती एंटरप्राइज़ सॉफ़्टवेयर, क्लाउड-नेटिव सिस्टम, और सुरक्षित गवटेक समाधान — राज्य एवं केंद्रीय शासन पहलों को सशक्त बनाने के लिए अभियांत्रित।</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="#focus-areas">गवटेक क्षमता मैट्रिक्स देखें</a>
-          <a class="btn btn-outline" href="mailto:hello@bharatudaytech.com?subject=Executive%20Briefing%20Request%20%E2%80%94%20Bharat%20Uday">कार्यकारी ब्रीफिंग का अनुरोध करें</a>
+          <a class="btn btn-outline" href="#contact">कार्यकारी ब्रीफिंग का अनुरोध करें</a>
         </div>
         <div class="hero-meta">
           <div class="hero-meta-item">आर्किटेक्चर<strong>ज़ीरो-ट्रस्ट · सॉवरेन क्लाउड</strong></div>
@@ -226,18 +226,78 @@
     </div>
   </section>
 
-  <!-- CTA BANNER -->
-  <section class="cta-banner">
-    <div class="container">
-      <h2>अगली पीढ़ी के गवटेक कार्यान्वयन के लिए भारत उदय के साथ भागीदारी करें।</h2>
-      <a class="btn btn-primary" href="mailto:hello@bharatudaytech.com?subject=Executive%20Briefing%20Request%20%E2%80%94%20Bharat%20Uday">कार्यकारी ब्रीफिंग का अनुरोध करें</a>
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container contact-grid">
+      <div class="contact-intro">
+        <p class="eyebrow">संपर्क करें</p>
+        <h2>अगली पीढ़ी के गवटेक कार्यान्वयन के लिए भारत उदय के साथ भागीदारी करें।</h2>
+        <p class="contact-intro-copy">कुछ विवरण साझा करें, हमारी गवटेक टीम 1–2 कार्य दिवसों में जवाब देगी।</p>
+      </div>
+      <div class="contact-card">
+        <p class="contact-alt">फॉर्म भरना पसंद नहीं? इसके बजाय हमें <a href="mailto:hello@bharatudaytech.com">hello@bharatudaytech.com</a> पर मेल करें।</p>
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST"
+              data-error-message="कुछ गड़बड़ हुई। कृपया पुनः प्रयास करें या हमें सीधे hello@bharatudaytech.com पर ईमेल करें।"
+              data-sending-label="भेजा जा रहा है…">
+          <input type="hidden" name="access_key" value="aa5ad458-3371-4146-8d9c-f5b2c9b6c5d7">
+          <input type="hidden" name="subject" value="New Executive Briefing Request — Bharat Uday">
+          <input type="hidden" name="from_name" value="Bharat Uday Website">
+          <input type="hidden" name="area_of_interest" id="area-of-interest-value">
+          <input type="checkbox" name="botcheck" class="hp-field" style="display:none">
+
+          <div class="form-grid">
+            <div class="form-field"><label for="cf-name">पूरा नाम</label><input class="form-control" id="cf-name" name="name" type="text" required></div>
+            <div class="form-field"><label for="cf-email">आधिकारिक ईमेल</label><input class="form-control" id="cf-email" name="email" type="email" required></div>
+            <div class="form-field"><label for="cf-designation">पदनाम</label><input class="form-control" id="cf-designation" name="designation" type="text" required></div>
+            <div class="form-field"><label for="cf-department">विभाग / मंत्रालय / PSU</label><input class="form-control" id="cf-department" name="department" type="text"></div>
+            <div class="form-field">
+              <label for="cf-gov-level">शासन स्तर</label>
+              <select class="form-control" id="cf-gov-level" name="government_level">
+                <option value="" disabled selected>चुनें…</option>
+                <option>राज्य सरकार</option><option>केंद्र सरकार</option><option>PSU</option><option>अन्य</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="cf-requirement">आवश्यकता की प्रकृति</label>
+              <select class="form-control" id="cf-requirement" name="requirement_type">
+                <option value="" disabled selected>चुनें…</option>
+                <option>RFP / टेंडर मसौदे में</option><option>प्रूफ-ऑफ-कॉन्सेप्ट अनुरोध</option>
+                <option>कार्यकारी ब्रीफिंग / सामान्य पूछताछ</option><option>भागीदारी चर्चा</option>
+              </select>
+            </div>
+            <div class="form-field"><label for="cf-phone">फ़ोन नंबर</label><input class="form-control" id="cf-phone" name="phone" type="tel"></div>
+
+            <fieldset class="form-field form-field--full checkbox-group">
+              <legend>रुचि का क्षेत्र</legend>
+              <div class="checkbox-options">
+                <label class="checkbox-item"><input type="checkbox" class="area-checkbox" value="Digital Public Infrastructure (DPI) & India Stack Integration"><span>डिजिटल पब्लिक इन्फ्रास्ट्रक्चर (DPI) और इंडिया स्टैक एकीकरण</span></label>
+                <label class="checkbox-item"><input type="checkbox" class="area-checkbox" value="High-Scale Enterprise Platforms"><span>उच्च-स्तरीय एंटरप्राइज़ प्लेटफ़ॉर्म</span></label>
+                <label class="checkbox-item"><input type="checkbox" class="area-checkbox" value="Governance AI & Decision Support Systems"><span>गवर्नेंस एआई और निर्णय सहायता प्रणालियाँ</span></label>
+                <label class="checkbox-item"><input type="checkbox" class="area-checkbox" value="Zero-Trust Security & Sovereign Cloud Deployment"><span>ज़ीरो-ट्रस्ट सुरक्षा और सॉवरेन क्लाउड परिनियोजन</span></label>
+              </div>
+            </fieldset>
+
+            <div class="form-field form-field--full"><label for="cf-message">संक्षिप्त विवरण</label><textarea class="form-control" id="cf-message" name="message" rows="4"></textarea></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary contact-submit">अनुरोध भेजें</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+        <div id="contact-success" class="contact-success" role="status" aria-live="polite" hidden>
+          <div class="contact-success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <h3>अनुरोध सफलतापूर्वक भेजा गया</h3>
+          <p>संपर्क करने के लिए धन्यवाद। हमारी गवटेक टीम को आपका अनुरोध प्राप्त हो गया है और वे 1–2 कार्य दिवसों में जवाब देंगे।</p>
+        </div>
+      </div>
     </div>
   </section>
 
 </main>
 
 <!-- FOOTER -->
-<footer class="site-footer" id="contact">
+<footer class="site-footer">
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">

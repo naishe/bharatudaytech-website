@@ -100,7 +100,7 @@
         <p class="hero-sub">High-concurrency enterprise software, cloud-native systems, and secure GovTech solutions engineered to power state and central governance initiatives.</p>
         <div class="hero-ctas">
           <a class="btn btn-primary" href="#focus-areas">Explore GovTech Capability Matrix</a>
-          <a class="btn btn-outline" href="mailto:hello@bharatudaytech.com?subject=Executive%20Briefing%20Request%20%E2%80%94%20Bharat%20Uday">Request Executive Briefing</a>
+          <a class="btn btn-outline" href="#contact">Request Executive Briefing</a>
         </div>
         <div class="hero-meta">
           <div class="hero-meta-item">Architecture<strong>Zero-Trust · Sovereign Cloud</strong></div>
@@ -218,18 +218,78 @@
     </div>
   </section>
 
-  <!-- CTA BANNER -->
-  <section class="cta-banner">
-    <div class="container">
-      <h2>Partner with Bharat Uday for Next-Generation GovTech Implementations.</h2>
-      <a class="btn btn-primary" href="mailto:hello@bharatudaytech.com?subject=Executive%20Briefing%20Request%20%E2%80%94%20Bharat%20Uday">Request Executive Briefing</a>
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container contact-grid">
+      <div class="contact-intro">
+        <p class="eyebrow">Get in Touch</p>
+        <h2>Partner with Bharat Uday for Next-Generation GovTech Implementations.</h2>
+        <p class="contact-intro-copy">Share a few details and our GovTech team will respond within 1–2 business days.</p>
+      </div>
+      <div class="contact-card">
+        <p class="contact-alt">Don't like forms? Mail to <a href="mailto:hello@bharatudaytech.com">hello@bharatudaytech.com</a> instead.</p>
+        <form id="contact-form" action="https://api.web3forms.com/submit" method="POST"
+              data-error-message="Something went wrong. Please try again, or email us directly at hello@bharatudaytech.com."
+              data-sending-label="Sending…">
+          <input type="hidden" name="access_key" value="aa5ad458-3371-4146-8d9c-f5b2c9b6c5d7">
+          <input type="hidden" name="subject" value="New Executive Briefing Request — Bharat Uday">
+          <input type="hidden" name="from_name" value="Bharat Uday Website">
+          <input type="hidden" name="area_of_interest" id="area-of-interest-value">
+          <input type="checkbox" name="botcheck" class="hp-field" style="display:none">
+
+          <div class="form-grid">
+            <div class="form-field"><label for="cf-name">Full Name</label><input class="form-control" id="cf-name" name="name" type="text" required></div>
+            <div class="form-field"><label for="cf-email">Official Email</label><input class="form-control" id="cf-email" name="email" type="email" required></div>
+            <div class="form-field"><label for="cf-designation">Designation</label><input class="form-control" id="cf-designation" name="designation" type="text" required></div>
+            <div class="form-field"><label for="cf-department">Department / Ministry / PSU</label><input class="form-control" id="cf-department" name="department" type="text"></div>
+            <div class="form-field">
+              <label for="cf-gov-level">Government Level</label>
+              <select class="form-control" id="cf-gov-level" name="government_level">
+                <option value="" disabled selected>Select…</option>
+                <option>State Government</option><option>Central Government</option><option>PSU</option><option>Other</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="cf-requirement">Nature of Requirement</label>
+              <select class="form-control" id="cf-requirement" name="requirement_type">
+                <option value="" disabled selected>Select…</option>
+                <option>RFP / Tender in Draft</option><option>Proof-of-Concept Request</option>
+                <option>Executive Briefing / General Inquiry</option><option>Partnership Discussion</option>
+              </select>
+            </div>
+            <div class="form-field"><label for="cf-phone">Phone Number</label><input class="form-control" id="cf-phone" name="phone" type="tel"></div>
+
+            <fieldset class="form-field form-field--full checkbox-group">
+              <legend>Area of Interest</legend>
+              <div class="checkbox-options">
+                <label class="checkbox-item"><input type="checkbox" class="area-checkbox" value="Digital Public Infrastructure (DPI) & India Stack Integration"><span>Digital Public Infrastructure (DPI) &amp; India Stack Integration</span></label>
+                <label class="checkbox-item"><input type="checkbox" class="area-checkbox" value="High-Scale Enterprise Platforms"><span>High-Scale Enterprise Platforms</span></label>
+                <label class="checkbox-item"><input type="checkbox" class="area-checkbox" value="Governance AI & Decision Support Systems"><span>Governance AI &amp; Decision Support Systems</span></label>
+                <label class="checkbox-item"><input type="checkbox" class="area-checkbox" value="Zero-Trust Security & Sovereign Cloud Deployment"><span>Zero-Trust Security &amp; Sovereign Cloud Deployment</span></label>
+              </div>
+            </fieldset>
+
+            <div class="form-field form-field--full"><label for="cf-message">Brief Description</label><textarea class="form-control" id="cf-message" name="message" rows="4"></textarea></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary contact-submit">Submit Request</button>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+        <div id="contact-success" class="contact-success" role="status" aria-live="polite" hidden>
+          <div class="contact-success-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          </div>
+          <h3>Request Sent Successfully</h3>
+          <p>Thank you for reaching out. Our GovTech team has received your request and will respond within 1–2 business days.</p>
+        </div>
+      </div>
     </div>
   </section>
 
 </main>
 
 <!-- FOOTER -->
-<footer class="site-footer" id="contact">
+<footer class="site-footer">
   <div class="container">
     <div class="footer-top">
       <div class="footer-brand">
