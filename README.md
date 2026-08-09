@@ -40,40 +40,29 @@ Then in the repo: **Settings → Pages → Build and deployment → Deploy from 
 branch → `main` / `/(root)`**. No GitHub Actions workflow is needed for a
 plain static site.
 
-## DNS — bharatuday.nishantlanbs.com
+## DNS — bharatudaytech.com (apex domain)
 
-At whatever DNS provider hosts `nishantlanbs.com`, add:
+At whatever DNS provider hosts `bharatudaytech.com`, add:
 
 ```
-CNAME   bharatuday   <your-github-username>.github.io.
+A       @    185.199.108.153
+A       @    185.199.109.153
+A       @    185.199.110.153
+A       @    185.199.111.153
+CNAME   www  <your-github-username>.github.io.
 ```
 
-The `CNAME` file in this repo (already set to `bharatuday.nishantlanbs.com`)
-tells GitHub Pages which custom domain to serve. Once DNS propagates, enable
-**Enforce HTTPS** in the repo's Pages settings.
-
-## Migrating to bharatudaytech.com later
-
-Every absolute URL is hardcoded to `https://bharatuday.nishantlanbs.com` (by
-design — hreflang/canonical/sitemap tags require absolute URLs, and this repo
-has no templating layer). When the new domain is ready:
-
-1. Update `CNAME` to `bharatudaytech.com`.
-2. Find-and-replace `bharatuday.nishantlanbs.com` → `bharatudaytech.com` across:
-   `en/index.html`, `hi/index.html`, `index.html`, `sitemap.xml`, `robots.txt`.
-3. Point the new domain's DNS at GitHub Pages (A/ALIAS records for an apex
-   domain, or CNAME if using a `www` subdomain).
-4. Add both old and new properties in Google Search Console; once the new
-   domain is live, a 301 equivalent is only possible via GitHub Pages if you
-   keep the old domain resolving — plan a transition window rather than a
-   hard cutover, so existing government bookmarks/links don't break.
+(Use ALIAS/ANAME instead of A records at the apex if your DNS provider
+supports it.) The `CNAME` file in this repo (already set to
+`bharatudaytech.com`) tells GitHub Pages which custom domain to serve. Once
+DNS propagates, enable **Enforce HTTPS** in the repo's Pages settings.
 
 ## Known follow-ups (not yet done)
 
-- **Social share image**: no `og:image` is set. Add a 1200×630 PNG (e.g.
-  `/assets/img/og-cover.png`) and reference it in both `<head>`s once branded
-  artwork exists — a broken image reference is worse than none, so it was
-  left out for now.
+- **Social share image**: `og:image`/`twitter:image` currently point at the
+  256×256 `logo-256.png` so link previews aren't broken, but it's square, not
+  the ideal 1200×630 landscape crop. Swap in a proper branded cover image
+  under `/assets/img/og-cover.png` when one exists.
 - **Google Search Console**: verify both language URLs and submit
   `sitemap.xml` once the domain is live.
 - **Hero visual**: the header/hero mark and hero background are an abstract
@@ -83,5 +72,5 @@ has no templating layer). When the new domain is ready:
   getting them wrong. If a literal India map graphic is wanted later, source
   it from an authoritative Survey of India-compliant asset, not a hand-drawn
   approximation.
-- **Contact**: primary CTA is a `mailto:gov@nishantlabs.in` link (no backend,
+- **Contact**: primary CTA is a `mailto:hello@bharatudaytech.com` link (no backend,
   since GitHub Pages is static). Swap for a form service later if needed.

@@ -1,6 +1,10 @@
 (function () {
   "use strict";
 
+  /* Auto-updating copyright year */
+  var yearEl = document.getElementById("copyright-year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
   /* Mobile nav toggle */
   var toggle = document.querySelector(".nav-toggle");
   var header = document.querySelector(".site-header");
