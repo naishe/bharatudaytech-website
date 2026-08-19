@@ -144,6 +144,20 @@ h2.sub{font-size:clamp(1.3rem,2vw,1.7rem); font-weight:500; color:var(--stone); 
 .progress{position:fixed; top:0; left:0; height:3px; background:var(--chakra); z-index:30; transition:width .4s ease}
 
 :focus-visible{outline:3px solid var(--chakra); outline-offset:2px}
+
+@media print{
+  @page{ size:13.333in 7.5in; margin:0 }
+  *,*::before,*::after{ -webkit-print-color-adjust:exact; print-color-adjust:exact }
+  .rail,.counter,.progress,.hint{ display:none !important }
+  body{ overflow:visible }
+  .deck{ height:auto; overflow:visible }
+  .slide{
+    opacity:1 !important; transform:none !important;
+    width:13.333in; height:7.5in; min-height:7.5in;
+    page-break-after:always; break-after:page;
+  }
+  .slide:last-child{ page-break-after:auto; break-after:auto }
+}
 </style>
 </head>
 <body>
